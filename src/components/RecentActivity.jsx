@@ -45,35 +45,32 @@ const activities = [
 export function RecentActivity() {
   return (
     <Card className="hover-lift shadow-card">
-      <CardHeader className="p-4 sm:p-6">
-        <CardTitle className="text-base sm:text-lg font-semibold">Recent Activity</CardTitle>
+      <CardHeader>
+        <CardTitle className="text-lg font-semibold">Recent Activity</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4 p-4 sm:p-6 pt-0">
+      <CardContent className="space-y-4">
         {activities.map((activity) => {
           const Icon = activity.icon
           
           return (
-            <div key={activity.id} className="flex items-start gap-2 sm:gap-3 group">
+            <div key={activity.id} className="flex items-start gap-3 group">
               <div className={cn(
-                "h-7 w-7 sm:h-8 sm:w-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5",
+                "h-8 w-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5",
                 activity.status === "passed" && "bg-success/10 text-success",
                 activity.status === "failed" && "bg-destructive/10 text-destructive",
                 activity.status === "in_progress" && "bg-warning/10 text-warning",
                 activity.status === "completed" && "bg-info/10 text-info"
               )}>
-                <Icon className="h-3 w-3 sm:h-4 sm:w-4" />
+                <Icon className="h-4 w-4" />
               </div>
               
-              <div className="flex-1 space-y-1 min-w-0">
-                <div className="flex items-center justify-between gap-2">
-                  <p className="text-xs sm:text-sm font-medium text-foreground group-hover:text-primary transition-soft truncate">
+              <div className="flex-1 space-y-1">
+                <div className="flex items-center justify-between">
+                  <p className="text-sm font-medium text-foreground group-hover:text-primary transition-soft">
                     {activity.title}
                   </p>
                   {activity.score && (
-                    <Badge 
-                      variant={activity.status === "passed" ? "default" : "destructive"}
-                      className="flex-shrink-0 text-xs"
-                    >
+                    <Badge variant={activity.status === "passed" ? "default" : "destructive"}>
                       {activity.score}%
                     </Badge>
                   )}

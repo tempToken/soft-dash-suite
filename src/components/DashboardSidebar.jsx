@@ -27,7 +27,7 @@ export function DashboardSidebar({ collapsed, onToggle }) {
   return (
     <div
       className={cn(
-        "relative flex flex-col bg-sidebar border-r border-sidebar-border transition-all duration-300 ease-in-out h-screen",
+        "relative flex flex-col bg-sidebar border-r border-sidebar-border transition-all duration-300 ease-in-out",
         collapsed ? "w-16" : "w-64"
       )}
     >
