@@ -15,7 +15,7 @@ const Index = () => {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           <StatsCard
             title="Tests Completed"
             value={24}
@@ -47,7 +47,7 @@ const Index = () => {
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
           {/* Rank Card - Takes 1 column */}
           <div className="lg:col-span-1">
             <RankCard />
@@ -60,7 +60,7 @@ const Index = () => {
         </div>
 
         {/* Additional Stats Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           <StatsCard
             title="Leaderboard Position"
             value="#247"

@@ -8,20 +8,36 @@ export function DashboardLayout({ children }) {
 
   return (
     <div className="min-h-screen flex w-full bg-background">
-      {/* Sidebar */}
-      <DashboardSidebar
-        collapsed={sidebarCollapsed}
-        onToggle={() => setSidebarCollapsed(!sidebarCollapsed)}
-      />
+      {/* Mobile Sidebar - Hidden on desktop */}
+      <div className={cn(
+        "lg:hidden fixed inset-y-0 left-0 z-50 transform transition-transform duration-300 ease-in-out",
+        sidebarCollapsed ? "-translate-x-full" : "translate-x-0"
+      )}>
+        <DashboardSidebar
+          collapsed={false}
+          onToggle={() => setSidebarCollapsed(!sidebarCollapsed)}
+        />
+      </div>
+
+      {/* Desktop Sidebar - Always visible on large screens */}
+      <div className="hidden lg:block">
+        <DashboardSidebar
+          collapsed={sidebarCollapsed}
+          onToggle={() => setSidebarCollapsed(!sidebarCollapsed)}
+        />
+      </div>
 
       {/* Main content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Header */}
-        <DashboardHeader />
+        <DashboardHeader 
+          onMobileMenuToggle={() => setSidebarCollapsed(!sidebarCollapsed)}
+          showMobileMenu={true}
+        />
 
         {/* Main content area */}
         <main className="flex-1 overflow-auto">
-          <div className="p-6">
+          <div className="p-3 sm:p-4 md:p-6">
             {children}
           </div>
         </main>

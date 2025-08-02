@@ -13,16 +13,30 @@ import {
 import { Badge } from "@/components/ui/badge"
 import { ThemeToggle } from "./ThemeToggle"
 
-export function DashboardHeader() {
+export function DashboardHeader({ onMobileMenuToggle, showMobileMenu }) {
   return (
-    <header className="flex items-center justify-between px-6 py-4 bg-background border-b border-border shadow-soft">
+    <header className="flex items-center justify-between px-3 sm:px-4 md:px-6 py-3 sm:py-4 bg-background border-b border-border shadow-soft">
+      {/* Mobile Menu Button */}
+      {showMobileMenu && (
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={onMobileMenuToggle}
+          className="lg:hidden h-9 w-9 hover-glow mr-2"
+        >
+          <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </Button>
+      )}
+
       {/* Search */}
       <div className="flex items-center gap-4 flex-1 max-w-md">
-        <div className="relative">
+        <div className="relative hidden sm:block">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
             placeholder="Search tests, notes..."
-            className="pl-10 w-80 bg-muted/30 border-muted focus:bg-background transition-soft"
+            className="pl-10 w-full sm:w-60 md:w-80 bg-muted/30 border-muted focus:bg-background transition-soft"
           />
         </div>
       </div>
