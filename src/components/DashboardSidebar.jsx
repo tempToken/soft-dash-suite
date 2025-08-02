@@ -21,12 +21,7 @@ const navigation = [
   { name: "Profile", href: "/profile", icon: User },
 ]
 
-interface DashboardSidebarProps {
-  collapsed: boolean
-  onToggle: () => void
-}
-
-export function DashboardSidebar({ collapsed, onToggle }: DashboardSidebarProps) {
+export function DashboardSidebar({ collapsed, onToggle }) {
   const location = useLocation()
 
   return (

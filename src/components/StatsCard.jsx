@@ -1,15 +1,5 @@
-import { LucideIcon } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
-
-interface StatsCardProps {
-  title: string
-  value: string | number
-  change?: string
-  icon: LucideIcon
-  trend?: "up" | "down" | "neutral"
-  className?: string
-}
 
 export function StatsCard({
   title,
@@ -18,7 +8,7 @@ export function StatsCard({
   icon: Icon,
   trend = "neutral",
   className
-}: StatsCardProps) {
+}) {
   return (
     <Card className={cn("hover-lift shadow-card", className)}>
       <CardContent className="p-6">

@@ -3,11 +3,7 @@ import { DashboardSidebar } from "./DashboardSidebar"
 import { DashboardHeader } from "./DashboardHeader"
 import { cn } from "@/lib/utils"
 
-interface DashboardLayoutProps {
-  children: React.ReactNode
-}
-
-export function DashboardLayout({ children }: DashboardLayoutProps) {
+export function DashboardLayout({ children }) {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
 
   return (
